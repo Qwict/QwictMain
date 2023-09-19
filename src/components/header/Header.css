@@ -1,0 +1,28 @@
+.header-paper {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center;
+  padding: 10px; /* Add padding to the paper container */
+}
+
+.header-links {
+  font-family: "QwictRegular";
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 10px; /* Adjust the gap between buttons */
+}
+
+.center-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  height: 100vh; /* Set a specific height or use another suitable value */
+
+  /* Add any additional styles for the Paper component */
+}
+
+.centered-image {
+  max-width: 100%; /* Ensure the image doesn't exceed the width of the Paper */
+  max-height: 100%; /* Ensure the image doesn't exceed the height of the Paper */
+}
