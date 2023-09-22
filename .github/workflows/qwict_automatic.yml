@@ -1,0 +1,26 @@
+name: Automatically deploy production backend 
+on: 
+  push:
+    branches: 
+    - main
+    
+jobs:
+  build:
+    name: Automatically deploy production backend on main change -> small footprint
+    runs-on: ubuntu-latest
+    steps:
+    - name: git pull on existing local repo -> small footprint
+      uses: appleboy/ssh-action@v0.1.7
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.QWICT_DEPLOY }}
+        passphrase: ${{ secrets.PASSPHRASE }}
+        port: ${{ secrets.PORT }}
+        script: |
+          cd /var/www/qwict/mainpage/QwictMain
+          git pull
+          git status
+          yarn install
+          yarn build
+          pm2 reload ecosystem.config.js --watch --ignore-watch="node_modules"

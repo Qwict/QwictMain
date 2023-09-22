@@ -8,6 +8,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { DrawerProvider } from './context/DrawerProvider';
 import QwerticRegular from './fonts/QwictRegular.ttf';
 import Footer from './components/footer/Footer';
+import { DialogProvider } from './context/DialogProvider';
+import { SnackbarProvider } from './context/SnackbarProvider';
 
 const darkTheme = createTheme({
   palette: {
@@ -40,12 +42,16 @@ function App() {
   return (
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <DrawerProvider>
-          <Routes>
-            <Route path="/" element={<Main />} />
-          </Routes>
-          <Footer />
-        </DrawerProvider>
+        <DialogProvider>
+          <SnackbarProvider>
+            <DrawerProvider>
+              <Routes>
+                <Route path="/" element={<Main />} />
+              </Routes>
+              <Footer />
+            </DrawerProvider>
+          </SnackbarProvider>
+        </DialogProvider>
       </ThemeProvider>
   );
 }

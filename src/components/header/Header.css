@@ -7,18 +7,19 @@
 
 .header-links {
   font-family: "QwictRegular";
-  display: flex;
+  /* display: flex; */
+  user-select: none;
   flex-direction: column; /* Stack buttons vertically */
   gap: 10px; /* Adjust the gap between buttons */
 }
+
 
 .center-div {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  height: 100vh; /* Set a specific height or use another suitable value */
-
+  height: 100vh; /* Set a specific height or use another suitable value
   /* Add any additional styles for the Paper component */
 }
 

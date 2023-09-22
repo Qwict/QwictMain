@@ -4,14 +4,12 @@ import Image from '../../media/QwictImage.png';
 
 const QwictHeaderImage = () => {
   return (
-    <div className="center-div">
-      {/* Centered Image */}
       <img
         src={Image}
+        draggable="false" 
         alt="Centered Image"
         className="centered-image"
-      />
-    </div>
+        />
   );
 };
 

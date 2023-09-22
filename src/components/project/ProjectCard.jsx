@@ -38,7 +38,7 @@ export default function ProjectCard(project) {
   };
 
   return (
-    <Card sx={{ m:2, p:2 }}>
+    <Card sx={{ m:2, p:2, maxWidth: "600px"}}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -55,12 +55,13 @@ export default function ProjectCard(project) {
       />
       <CardMedia
         component="img"
-        height="194"
-        image={QwictImage}
+        height="250"
+        sx={{objectFit: "contain" }}
+        image={'./media/' + project.image}
         alt="Paella dish"
       />
       <CardContent>
-        <Typography variant="body2" color="text.secondary" sx={{maxWidth: "400px"}}>
+        <Typography variant="body2" color="text.secondary">
           {project.description}
         </Typography>
       </CardContent>

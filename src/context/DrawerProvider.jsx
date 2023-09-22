@@ -27,7 +27,6 @@ export const DrawerProvider = ({ children }) => {
     try {
         setLoadingProjects(true);
         const data = await getAllProjects();
-        console.log(data);
         setProjects(data);
     } catch (err) {
         setError(err);
@@ -51,28 +50,26 @@ export const DrawerProvider = ({ children }) => {
 
   return (
     <DrawerContext.Provider value={{ drawerOpen, toggleDrawer }}>
-    <div sx={{width: '200px'}}>
-      <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer}>
-        <div>
-        {loadingProjects && <LinearProgress color="secondary" />}
+      <div>
+        <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer}>
+          <div>
+          {loadingProjects && <LinearProgress color="secondary" />}
 
-        </div>
+          </div>
 
-        <div
-          role="presentation"
-          // onClick={toggleDrawer}
-          onKeyDown={toggleDrawer}
-        >
-          
-
-          <List>
-            {projects.map((project) => (
-                <ProjectCard key={project.id} {...project} project={project}/>
-            ))}
-          </List>
-        </div>
-      </Drawer>
-    </div>
+          <div
+            role="presentation"
+            // onClick={toggleDrawer}
+            onKeyDown={toggleDrawer}
+          >
+            <List>
+              {projects.map((project) => (
+                  <ProjectCard key={project.id} {...project} project={project}/>
+              ))}
+            </List>
+          </div>
+        </Drawer>
+      </div>
       {children}
     </DrawerContext.Provider>
   );
