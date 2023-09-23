@@ -1,10 +1,9 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import Button from '@mui/material/Button';
+import React, { createContext, useContext } from 'react';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
@@ -32,36 +31,37 @@ export const DialogProvider = ({ children }) => {
 
   return (
     <DialogContext.Provider value={{ dialogOpen, toggleDialog }}>
-    <div>
-      <Dialog
-        fullScreen={fullScreen}
-        open={dialogOpen}
-        onClose={toggleDialog}
-        aria-labelledby="responsive-dialog-title"
-      >
-        <DialogTitle id="responsive-dialog-title">
-          About Qwict
-        </DialogTitle>
-        <IconButton
-          aria-label="close"
-          onClick={toggleDialog}
-          sx={{
-            position: 'absolute',
-            right: 8,
-            top: 8,
-            color: (theme) => theme.palette.grey[500],
-          }}
+      <div>
+        <Dialog
+          maxWidth="md"
+          fullScreen={fullScreen}
+          open={dialogOpen}
+          onClose={toggleDialog}
+          aria-labelledby="responsive-dialog-title"
         >
-          <CloseIcon />
-        </IconButton>
-        <DialogContent>
-          <DialogContentText>
-            <AboutQwictDialog />
-          </DialogContentText>
-        </DialogContent>
-      </Dialog>
-    </div>
-    {children}
+          <DialogTitle id="responsive-dialog-title">
+            Welcome to Qwict - Your Premier Web Development and Hosting Solutions Partner!
+          </DialogTitle>
+          <IconButton
+            aria-label="close"
+            onClick={toggleDialog}
+            sx={{
+              position: 'absolute',
+              right: 8,
+              top: 8,
+              color: (theme) => theme.palette.grey[500],
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+          <DialogContent>
+            <DialogContentText>
+              <AboutQwictDialog />
+            </DialogContentText>
+          </DialogContent>
+        </Dialog>
+      </div>
+      {children}
     </DialogContext.Provider>
   );
 };

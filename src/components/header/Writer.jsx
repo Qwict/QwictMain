@@ -3,16 +3,16 @@ import Typewriter from 'typewriter-effect';
 
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import './Header.css' 
+import './Header.css'
 
 
 export default function Writer() {
-    return (
-      <Paper className="center-div">
-        <Typography
-            variant="h4"
-            style={{ color: 'grey' }}
-        >
+  return (
+    <Paper className="center-div">
+      <Typography
+        variant="h4"
+        style={{ color: 'grey' }}
+      >
         <Typewriter
           onInit={(typewriter) => {
             typewriter
@@ -32,8 +32,8 @@ export default function Writer() {
               .start();
           }}
         />
-              
-    </Typography>
+
+      </Typography>
     </Paper>
-    )
+  )
 }

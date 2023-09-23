@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import {
   useCallback,
   useMemo,
@@ -18,7 +18,7 @@ const useProject = () => {
       // } = await axios.get(baseUrl);
 
       // fake a delay to simulate a real api call
-      // await new Promise(resolve => setTimeout(resolve, 10000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
       return projects;
   }, []);
 
